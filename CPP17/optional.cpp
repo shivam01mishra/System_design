@@ -5,12 +5,12 @@ using namespace std;
 
 // Template function with compile-time branching
 template<typename T>
-optional<int> fun(T x) {
+optional<T> fun(T x) {
     if constexpr (is_same_v<T, int>) {
         return x;                  // T is int, return as-is
     }
     else if constexpr (is_same_v<T, double>) {
-        return static_cast<int>(2 * x); // T is double, double and cast to int
+        return (2 * x); // T is double, double and cast to int
     }
     else {
         return nullopt;            // For all other types
